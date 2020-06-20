@@ -35,13 +35,9 @@
 其中前4个类每一个类都含有一个append函数，Log的设计也是主要围绕这个append函数展开的。
 
 1. FileUtil是最底层的文件类，封装了Log文件的打开、写入并在类析构的时候关闭文件，底层使用了标准IO，设置了文件的写入缓冲区，该append函数直接向文件写。
-
 2. LogFile进一步封装了FileUtil(LogFile中带有FileUtil指针)，复制管理FileUtil的写入文件描述符，同时在该类利用了锁机制，保证线程安全。设置了一个循环次数，每达到指定次数，就flush一次。
-
 3. AsyncLogging是核心，它负责启动一个log线程，专门用来将log写入LogFile，应用了“双缓冲技术”。交换双缓冲区用到了condition+lock的配合，避免主线程与Log线程竞用复制写入的缓冲区。交换后，log线程继续负责(定时到或被填满时)将缓冲区中的数据写入LogFile中。总的来说，通过AsyncLogging实现异步处理功能。本框架中利用了thread_once保证了AsynLogging只有一个实例
-
 4. LogStream主要用来格式化输出，重载了<<运算符，同时也有自己的一块缓冲区，这里缓冲区的存在是为了缓存一行，把多个<<的结果连成一块。
-
 5. Logging是对外接口，Logging类内涵一个LogStream对象，主要是为了每次打log的时候在log之前和之后加上固定的格式化的信息，比如打log的行、
 文件名等信息。
 

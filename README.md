@@ -28,6 +28,7 @@
 3. TimerManager利用优先队列实现对Timer的管理，值得注意的是，Timer并不是过期的时候马上删除，而是等到程序运行到相应步骤TimerManager::handle_expired_event()的时候，才对过期或者设置为deleted状态的进行删除pop处理。意味着，设定的失效时间只是真正被删除时间的下限，这样的好处时，增加了一定范围的时间容忍区间，当Timers失效(未被真正删除)，该端口来了新的数据，对应Timers被重新激活，省去了一次delete和一次new的时间。另外对TimerManager的优先队列的访问需要加锁以保证线程安全。
 4. Threadpool类实现了线程池机制，主线程通过ThreadPool::threadpool_add函数添加任务，添加时候需要加锁，最后调用notify，子线程通过ThreadPool::threadpool_thread循环，从队列中获取任务。
 5. RequestData类实现对HTTP数据的解析与处理，以及可以实现HTTP报文回送功能。
+6. 对于Keep_alive的RequestData，在对HTTP数据解析与处理完的时，再次调用epoll_add把相应的fd放进epoll中，注意epoll_ctl是线程安全的。
 
 ##### LOG日志部分的实现细节(借鉴Ref-2)
 与Log相关的类包括FileUtil、LogFile、AsyncLogging、LogStream、Logging。

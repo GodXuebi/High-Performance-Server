@@ -1,11 +1,7 @@
-# High Performance Server 高性能服务器实现
+# High Performance Server 高性能服务器实现（旧版本）
 
 ##### Introduction 简介
-本项目利用C++编写了Web服务器，能够解析Get和Post请求，支持HTTP1.0和HTTP1.1长连接。计划添加日志
+本项目利用C++编写了Web服务器，能够解析Get和Post请求，支持HTTP1.0和HTTP1.1长连接。计划添加日志。
 
 
 
-##### Details 实现细节
-1. 利用小根堆实现了定时器功能，控制HTTP连接的释放。
-2. 通过主线程开启线程池，主线程负责监听和分发任务,线程池中的子线程负责解析HTTP内容并且发送回送报文。充分利用多核CPU的性能，避免了频繁创建和销毁的花销。
-3. 

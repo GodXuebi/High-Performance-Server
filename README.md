@@ -49,3 +49,5 @@
 ##### Reference 参考
 1. 陈硕的muduo高性能网络库
 2. [Linyacool的网络库](https://github.com/linyacool/WebServer)
+3. [Reactor模型](https://blog.csdn.net/weixin_43326401/article/details/104202424?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase)
+

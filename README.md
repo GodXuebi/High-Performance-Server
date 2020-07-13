@@ -51,3 +51,9 @@
 2. [Linyacool的网络库](https://github.com/linyacool/WebServer)
 3. [Reactor模型](https://blog.csdn.net/weixin_43326401/article/details/104202424?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase)
 
+##### Reference 扩展阅读 
+1. Shutdown和Close机制： [高性能网络编程4--TCP连接的关闭](https://blog.csdn.net/iteye_10227/article/details/82546016?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase)
+2. 关于FIN_WAIT1 [关于FIN_WAIT1](https://blog.huoding.com/2014/11/06/383)
+
+
+
